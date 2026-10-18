@@ -273,6 +273,66 @@ section {
 
 /* ---------- Projects section ---------- */
 
+.project-controls {
+    width: min(100%, 650px);
+    margin: 0 auto 32px;
+}
+
+.project-controls label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.project-controls input {
+    width: 100%;
+    padding: 12px 16px;
+    color: var(--text-color);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+}
+
+.project-controls input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px
+        color-mix(in srgb, var(--primary-color) 20%, transparent);
+}
+
+#project-search-status {
+    margin-top: 8px;
+    color: var(--muted-text);
+    font-size: 0.9rem;
+}
+
+.empty-state {
+    width: min(100%, var(--content-width));
+    margin: 30px auto 0;
+    padding: 24px;
+    color: var(--muted-text);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.project-card:not([hidden]) {
+    animation: show-project 0.3s ease;
+}
+
+@keyframes show-project {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .project-grid {
     width: min(100%, var(--content-width));
     margin: 0 auto;
@@ -559,5 +619,6 @@ textarea:focus-visible {
     *::before,
     *::after {
         transition: none !important;
+        animation: none !important;
     }
 }

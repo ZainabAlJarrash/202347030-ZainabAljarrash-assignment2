@@ -98,6 +98,27 @@
                 <h2>My Projects</h2>
             </div>
 
+            <div class="project-controls">
+    <label for="project-search">Search my projects</label>
+    <input
+        id="project-search"
+        type="search"
+        placeholder="Search by project name or technology"
+        autocomplete="off"
+        aria-describedby="project-search-status"
+    >
+
+    <p id="project-search-status" aria-live="polite">
+        Showing all projects.
+    </p>
+</div>
+
+<p id="no-projects-message" class="empty-state" hidden>
+    No projects match your search. Please try another keyword.
+</p>
+
+
+
             <div class="project-grid">
                 <article class="project-card">
                     <img

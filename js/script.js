@@ -41,6 +41,54 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+// Filter the project cards using the visitor's search.
+const projectSearch = document.querySelector("#project-search");
+const projectCards = document.querySelectorAll(".project-card");
+const searchStatus = document.querySelector("#project-search-status");
+const noProjectsMessage = document.querySelector("#no-projects-message");
+
+if ( projectSearch && searchStatus && noProjectsMessage && projectCards.length > 0) {
+    function filterProjects() {
+        const searchText = projectSearch.value.trim().toLowerCase();
+        let visibleProjects = 0;
+
+        projectCards.forEach(function (card) {
+            const projectInformation =
+                card.textContent.toLowerCase();
+
+            const matchesSearch =
+                projectInformation.includes(searchText);
+
+            card.hidden = !matchesSearch;
+
+            if (matchesSearch) {
+                visibleProjects++;
+            }
+        });
+
+        if (searchText === "") {
+            searchStatus.textContent =
+                `Showing all ${projectCards.length} projects.`;
+        } else if (visibleProjects === 1) {
+            searchStatus.textContent = "1 project found.";
+        } else {
+            searchStatus.textContent =
+                `${visibleProjects} projects found.`;
+        }
+
+        noProjectsMessage.hidden = visibleProjects !== 0;
+    }
+
+    projectSearch.addEventListener("input", filterProjects);
+
+    // Display the correct project count when the page first loads.
+    filterProjects();
+}
+
+
+
+
+
     // Switch between light and dark themes.
     const themeToggle = document.querySelector("#theme-toggle");
     const savedTheme = localStorage.getItem("portfolio-theme");
