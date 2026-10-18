@@ -28,62 +28,132 @@ document.addEventListener("DOMContentLoaded", function () {
     const formStatus = document.querySelector("#form-status");
 
     if (contactForm && formStatus) {
+        const nameInput = document.querySelector("#name");
+        const emailInput = document.querySelector("#email");
+        const messageInput = document.querySelector("#message");
+
+        const nameError = document.querySelector("#name-error");
+        const emailError = document.querySelector("#email-error");
+        const messageError = document.querySelector("#message-error");
+
+        function showError(input, errorElement, message) {
+            input.setAttribute("aria-invalid", "true");
+            errorElement.textContent = message;
+        }
+
+        function clearError(input, errorElement) {
+            input.removeAttribute("aria-invalid");
+            errorElement.textContent = "";
+        }
+
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const nameInput = document.querySelector("#name");
+            let formIsValid = true;
+
+            clearError(nameInput, nameError);
+            clearError(emailInput, emailError);
+            clearError(messageInput, messageError);
+
+            formStatus.textContent = "";
+            formStatus.className = "form-status";
+
             const visitorName = nameInput.value.trim();
+            const visitorEmail = emailInput.value.trim();
+            const visitorMessage = messageInput.value.trim();
+
+            if (visitorName === "") {
+                showError(
+                    nameInput,
+                    nameError,
+                    "Please enter your name."
+                );
+                formIsValid = false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(visitorEmail)) {
+                showError(
+                    emailInput,
+                    emailError,
+                    "Please enter a valid email address."
+                );
+                formIsValid = false;
+            }
+
+            if (visitorMessage === "") {
+                showError(
+                    messageInput,
+                    messageError,
+                    "Please enter a message."
+                );
+                formIsValid = false;
+            }
+
+            if (!formIsValid) {
+                formStatus.textContent =
+                    "Please correct the highlighted fields.";
+                formStatus.classList.add("error");
+
+                contactForm
+                    .querySelector('[aria-invalid="true"]')
+                    .focus();
+
+                return;
+            }
 
             formStatus.textContent =
-                `Thank you, ${visitorName}! This demo form does not send data.`;
+                `Thank you, ${visitorName}! The form was completed successfully.`;
 
+            formStatus.classList.add("success");
             contactForm.reset();
         });
     }
 
-// Filter the project cards using the visitor's search.
-const projectSearch = document.querySelector("#project-search");
-const projectCards = document.querySelectorAll(".project-card");
-const searchStatus = document.querySelector("#project-search-status");
-const noProjectsMessage = document.querySelector("#no-projects-message");
+    // Filter the project cards using the visitor's search.
+    const projectSearch = document.querySelector("#project-search");
+    const projectCards = document.querySelectorAll(".project-card");
+    const searchStatus = document.querySelector("#project-search-status");
+    const noProjectsMessage = document.querySelector("#no-projects-message");
 
-if ( projectSearch && searchStatus && noProjectsMessage && projectCards.length > 0) {
-    function filterProjects() {
-        const searchText = projectSearch.value.trim().toLowerCase();
-        let visibleProjects = 0;
+    if (projectSearch && searchStatus && noProjectsMessage && projectCards.length > 0) {
+        function filterProjects() {
+            const searchText = projectSearch.value.trim().toLowerCase();
+            let visibleProjects = 0;
 
-        projectCards.forEach(function (card) {
-            const projectInformation =
-                card.textContent.toLowerCase();
+            projectCards.forEach(function (card) {
+                const projectInformation =
+                    card.textContent.toLowerCase();
 
-            const matchesSearch =
-                projectInformation.includes(searchText);
+                const matchesSearch =
+                    projectInformation.includes(searchText);
 
-            card.hidden = !matchesSearch;
+                card.hidden = !matchesSearch;
 
-            if (matchesSearch) {
-                visibleProjects++;
+                if (matchesSearch) {
+                    visibleProjects++;
+                }
+            });
+
+            if (searchText === "") {
+                searchStatus.textContent =
+                    `Showing all ${projectCards.length} projects.`;
+            } else if (visibleProjects === 1) {
+                searchStatus.textContent = "1 project found.";
+            } else {
+                searchStatus.textContent =
+                    `${visibleProjects} projects found.`;
             }
-        });
 
-        if (searchText === "") {
-            searchStatus.textContent =
-                `Showing all ${projectCards.length} projects.`;
-        } else if (visibleProjects === 1) {
-            searchStatus.textContent = "1 project found.";
-        } else {
-            searchStatus.textContent =
-                `${visibleProjects} projects found.`;
+            noProjectsMessage.hidden = visibleProjects !== 0;
         }
 
-        noProjectsMessage.hidden = visibleProjects !== 0;
+        projectSearch.addEventListener("input", filterProjects);
+
+        // Display the correct project count when the page first loads.
+        filterProjects();
     }
-
-    projectSearch.addEventListener("input", filterProjects);
-
-    // Display the correct project count when the page first loads.
-    filterProjects();
-}
 
 
 

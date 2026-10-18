@@ -4,6 +4,7 @@
     --primary-color: #6750a4;
     --primary-dark: #49327f;
     --accent-color: #007f73;
+    --error-color: #b42318;
     --button-text: #ffffff;
 
     --background-color: #f8f8fc;
@@ -24,6 +25,7 @@ body.dark-theme {
     --primary-color: #c7b7ff;
     --primary-dark: #6d58b1;
     --accent-color: #63dccb;
+    --error-color: #ffb4ab;
     --button-text: #17151d;
 
     --background-color: #17151d;
@@ -86,11 +88,9 @@ section {
     top: 0;
     z-index: 1000;
     background-color: var(--background-color);
-    background-color: color-mix(
-        in srgb,
-        var(--background-color) 90%,
-        transparent
-    );
+    background-color: color-mix(in srgb,
+            var(--background-color) 90%,
+            transparent);
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(12px);
 }
@@ -150,16 +150,12 @@ section {
     place-items: center;
     text-align: center;
     background:
-        radial-gradient(
-            circle at top left,
+        radial-gradient(circle at top left,
             color-mix(in srgb, var(--primary-color) 22%, transparent),
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at bottom right,
+            transparent 40%),
+        radial-gradient(circle at bottom right,
             color-mix(in srgb, var(--accent-color) 20%, transparent),
-            transparent 40%
-        );
+            transparent 40%);
 }
 
 .hero-content {
@@ -254,11 +250,9 @@ section {
     display: grid;
     place-items: center;
     color: #ffffff;
-    background: linear-gradient(
-        135deg,
-        var(--primary-color),
-        var(--accent-color)
-    );
+    background: linear-gradient(135deg,
+            var(--primary-color),
+            var(--accent-color));
     border-radius: 50%;
     box-shadow: var(--shadow);
     font-size: 3rem;
@@ -296,8 +290,7 @@ section {
 
 .project-controls input:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px
-        color-mix(in srgb, var(--primary-color) 20%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 20%, transparent);
 }
 
 #project-search-status {
@@ -456,8 +449,7 @@ section {
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px
-        color-mix(in srgb, var(--primary-color) 20%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 20%, transparent);
 }
 
 .form-status {
@@ -512,6 +504,27 @@ section {
     .contact-links {
         grid-template-columns: 1fr;
     }
+}
+
+.form-error {
+    display: block;
+    min-height: 22px;
+    margin-top: 5px;
+    color: var(--error-color);
+    font-size: 0.85rem;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: var(--error-color);
+}
+
+.form-status.error {
+    color: var(--error-color);
+}
+
+.form-status.success {
+    color: var(--accent-color);
 }
 
 /* ---------- Footer ---------- */
