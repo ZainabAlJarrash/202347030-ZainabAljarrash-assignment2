@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="The personal portfolio of Zainab Aljarrash, a software engineering student and graphic designer."
+    >
+
+    <title>Zainab Aljarrash | Portfolio</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a class="logo" href="#home">Zainab Aljarrash</a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button
+                id="theme-toggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Switch between light and dark themes"
+            >
+                Dark mode
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">Hello, I am</p>
+                <h1>Zainab Aljarrash</h1>
+
+                <p class="tagline">
+                    A software engineering student, technology enthusiast,
+                    and graphic designer.
+                </p>
+
+                <p id="greeting" class="greeting"></p>
+
+                <a class="primary-button" href="#projects">
+                    Explore my projects
+                </a>
+            </div>
+        </section>
+
+        <!-- About Me section -->
+        <section id="about" class="section">
+            <div class="section-heading">
+                <p class="section-label">Who I am</p>
+                <h2>About Me</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="profile-placeholder" role="img"
+                     aria-label="Profile image placeholder for Zainab Aljarrash">
+                    ZA
+                </div>
+
+                <div>
+                    <p>
+                        I am a software engineering student with a strong
+                        interest in technology and programming.
+                    </p>
+                    <p>
+                        I enjoy combining technical problem-solving with my experience
+                        as a graphic designer to create useful and visually
+                        engaging digital experiences.
+                    </p>
+
+                    <p>
+                        I am especially interested in cloud computing and
+                        artificial intelligence, and I look forward to
+                        developing my skills in these areas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects section -->
+        <section id="projects" class="section section-alt">
+            <div class="section-heading">
+                <p class="section-label">Selected work</p>
+                <h2>My Projects</h2>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card">
+                    <img
+                        src="assets/images/seraj-project.jpg"
+                        alt="The Seraj virtual reality game about Saudi culture"
+                    >
+
+                    <div class="project-card-content">
+                        <h3>Seraj</h3>
+
+                        <p>
+                            A virtual reality game designed to introduce
+                            players to Saudi culture through an immersive and
+                            interactive experience.
+                        </p>
+
+                        <ul class="project-tags" aria-label="Project technologies">
+                            <li>Virtual Reality</li>
+                            <li>Game Design</li>
+                            <li>Saudi Culture</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img
+                        src="assets/images/networking-assistant.jpg"
+                        alt="The Networking Assistant project interface"
+                    >
+
+                    <div class="project-card-content">
+                        <h3>Networking Assistant</h3>
+
+                        <p>
+                            A web-based project created to assist ICS 343 students with
+                            networking concepts and make network-related
+                            information easier to understand, especially in their labs.
+                        </p>
+
+                        <ul class="project-tags" aria-label="Project technologies">
+                            <li>Networking</li>
+                            <li>Problem-Solving</li>
+                            <li>Student Support</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Interests section -->
+        <section id="interests" class="section">
+            <div class="section-heading">
+                <p class="section-label">What I enjoy</p>
+                <h2>Skills and Interests</h2>
+            </div>
+
+            <div class="interest-grid">
+                <article class="interest-card">
+                    <h3>Programming</h3>
+                    <p>
+                        Building software and improving my problem-solving
+                        abilities.
+                    </p>
+                </article>
+
+                <article class="interest-card">
+                    <h3>Graphic Design</h3>
+                    <p>
+                        Creating attractive visuals and user-focused digital
+                        experiences, especially for university events.
+                    </p>
+                </article>
+
+                <article class="interest-card">
+                    <h3>Cloud Computing</h3>
+                    <p>
+                        Learning how scalable applications and online
+                        infrastructure work.
+                    </p>
+                </article>
+
+                <article class="interest-card">
+                    <h3>Artificial Intelligence</h3>
+                    <p>
+                        Exploring intelligent systems and their practical
+                        applications.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="section section-alt">
+            <div class="section-heading">
+                <p class="section-label">Let's connect</p>
+                <h2>Contact Me</h2>
+            </div>
+
+            <div class="contact-links" aria-label="Contact information">
+                <a
+                    class="contact-link-card"
+                    href="mailto:s202347030@kfupm.edu.sa"
+                >
+                    <span class="contact-link-label">University Email</span>
+                    <span class="contact-link-value">
+                        s202347030@kfupm.edu.sa
+                    </span>
+                </a>
+
+                <a
+                    class="contact-link-card"
+                    href="https://www.linkedin.com/in/zainab-aljarrash/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span class="contact-link-label">LinkedIn</span>
+                    <span class="contact-link-value">Connect with me</span>
+                </a>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        required
+                    ></textarea>
+                </div>
+
+                <button class="primary-button" type="submit">
+                    Send message
+                </button>
+
+                <p
+                    id="form-status"
+                    class="form-status"
+                    aria-live="polite"
+                ></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            &copy; <span id="current-year"></span> Zainab Aljarrash.
+            Built with HTML, CSS, and JavaScript.
+        </p>
+    </footer>
+</body>
+</html>
