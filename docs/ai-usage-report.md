@@ -1,33 +1,47 @@
 # AI Usage Report
 
-## Tools Used and Use Cases
+## AI Tool Used
 
-I used ChatGPT, TeleportHQ, and Webstudio while working on this assignment.
+I used ChatGPT while working on Assignment 2.
 
-I used ChatGPT as a guide. It helped me create the initial HTML structure, turn my ideas into visual and interactive components, and understand the dark-mode feature. It also helped me find syntax errors and make the layout responsive on different screen sizes.
+## How I Used ChatGPT
 
-I tried TeleportHQ and Webstudio to explore website designs and generate CSS visually. They helped me understand how colors, spacing, and layouts change the appearance of a webpage. However, I found it difficult to complete the design using their free versions, so I wrote the CSS in my project with help from ChatGPT and changed it to match the appearance I wanted.
+I used ChatGPT to help me choose interactive features that were suitable for my portfolio. After reviewing the assignment requirements, I selected a live project-search feature because it responds to user input and helps visitors find projects.
+
+ChatGPT also helped me with:
+
+- Planning the project-search feature.
+- Explaining how JavaScript filters the project cards.
+- Adding a result count and a message when no projects are found.
+- Improving the contact form with validation and feedback.
+- Suggesting accessibility improvements.
+- Explaining some concepts as a revision before I started the tasks.
 
 ## Benefits and Challenges
 
-AI helped me divide the assignment into smaller steps and understand how HTML, CSS, and JavaScript work together. It also helped me debug an error that appeared when I ran `script.js` with Node.js. I learned that code using `document` must run in a browser because it interacts with the webpage.
+AI helped me divide the assignment into smaller steps that could be implemented more easily. It also helped me understand how to check the structure of a valid email and allow users to search for specific project information.
 
-One challenge was that generated suggestions did not always match my project. I needed to change class names, text, image paths, colors, and spacing. I also needed to test every feature instead of assuming that the generated code was correct.
+One challenge was that the generated suggestions did not always match my project. The first validation suggestion required at least two characters for a name and at least ten characters for a message. I decided that these restrictions were unnecessary because a person may use a one-character name or send a short valid message.
+
+I changed the validation so that the name and message only need to be nonempty. The email must still follow a valid email format.
 
 ## Learning Outcomes
 
-While completing this assignment, I learned how to:
+Through this process, I learned how to:
 
-- Use semantic HTML to organize a webpage.
-- Use Flexbox and CSS Grid for layouts.
-- Use media queries for desktop, tablet, and mobile screens.
-- Use event listeners to respond to user actions.
-- Switch between light and dark mode using a CSS class.
-- Save the selected theme using `localStorage`.
-- Use Live Server and the browser console to test and debug the website.
+- Use an `input` event listener to respond while a user types.
+- Compare search text with project-card content.
+- Show and hide elements using JavaScript.
+- Update a result count dynamically.
+- Validate form input and display helpful errors.
+- Use `aria-live` and `aria-invalid` for accessibility.
+- Save and restore a theme using `localStorage`.
+- Respect reduced-motion accessibility preferences.
 
 ## Responsible Use and Modifications
 
 I did not submit AI-generated code without reviewing it. I read the code, tested it, and asked for explanations when I did not understand something.
 
-I added my own introduction, projects, images, university email, and LinkedIn profile. I changed the suggested CSS to match my HTML and preferred appearance. I also tested the navigation, images, contact form, greeting, dark mode, and responsive layout. The tools helped me learn and find ideas, but I made the final decisions and changes in the project.
+ChatGPT supported my learning and problem-solving, but I made the final decisions.
+
+I tested the project-search feature using matching and nonmatching words. I also tested the form with empty fields, an invalid email, and valid input.

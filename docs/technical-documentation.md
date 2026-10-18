@@ -2,96 +2,91 @@
 
 ## Project Overview
 
-This project is a responsive personal portfolio website that is the starting point for my professional portfolio. It introduces me, presents my main projects, shows my skills and interests, and provides contact information.
+This project is a responsive and interactive personal portfolio created using HTML, CSS, and JavaScript. It introduces me, presents my projects and interests, and provides my contact information.
 
-The website uses HTML, CSS, and JavaScript. It does not require a backend or database.
+Assignment 2 improves the original portfolio by adding live project search, form validation, user feedback, animation, and saved theme preferences.
 
 ## Technologies Used
 
-- HTML for the structure and content.
-- CSS for the design and responsive layout.
-- JavaScript for interactions.
+- HTML5 for the website structure and content.
+- CSS3 for styling, responsive layouts, themes, and animations.
+- JavaScript for dynamic behavior and validation.
+- `localStorage` for saving the selected theme.
 - Git and GitHub for version control.
 - Live Server for local testing.
-- ChatGPT for development guidance.
-- TeleportHQ and Webstudio for design exploration.
-
-## Project Structure
-
-```text
-project-folder/
-├── index.html
-├── README.md
-├── .gitignore
-├── css/
-│   └── styles.css
-├── js/
-│   └── script.js
-├── assets/
-│   └── images/
-│       ├── seraj-project.jpg
-│       └── networking-assistant.jpg
-└── docs/
-    ├── ai-usage-report.md
-    └── technical-documentation.md
-```
 
 ## HTML Structure
 
-### Navigation
+The page uses semantic sections for navigation, the hero area, About Me, projects, interests, contact information, and the footer.
 
-The navigation links point to section IDs on the same page. This lets visitors move directly to About, Projects, Interests, or Contact.
+The Projects section includes a search field, project cards, a search-status message, and an empty-state message.
 
-### Hero
-
-The hero section displays my name, tagline, a time-based greeting, and a button that links to my projects.
-
-### About Me
-
-This section introduces me as a software engineering student and graphic designer who is interested in technology, programming, cloud computing, and artificial intelligence.
-
-### Projects
-
-The Projects section presents Seraj, a virtual reality game about Saudi culture, and Networking Assistant, a web-based project for ICS 343 students. Each project has a title, description, image, and topic tags.
-
-### Skills and Interests
-
-This section presents my interests in programming, graphic design, cloud computing, and artificial intelligence.
-
-### Contact
-
-The Contact section contains my university email, LinkedIn profile, and a form with Name, Email, and Message fields. The form is a demonstration because the assignment does not require a backend.
+The Contact section includes university email and LinkedIn links. It also contains a demonstration form with name, email, and message fields.
 
 ## CSS Design
 
-The stylesheet is stored in `css/styles.css`. CSS variables control the main colors, which makes light and dark themes easier to manage.
+CSS variables control the main colors, backgrounds, borders, and shadows. The variables change when the `dark-theme` class is active.
 
-Flexbox is used for navigation and alignment. CSS Grid is used for the project cards, interest cards, and contact links. Media queries change the layout for tablets and mobile devices. Project images use `object-fit: cover` so they have a consistent size without becoming distorted.
+CSS Grid is used for the project and interest cards, while Flexbox is used for navigation and alignment.
+
+Media queries adapt the layout for tablets and mobile devices. Transitions and hover effects provide visual feedback. Project cards also use a short reveal animation when they appear after filtering.
+
+The `prefers-reduced-motion` media query disables animations for visitors who request reduced motion.
 
 ## JavaScript Features
 
-The JavaScript is stored in `js/script.js`.
+### Project Search
 
-### Time-Based Greeting
+An `input` event listener detects what the user types in the project-search field. JavaScript converts the search text and project content to lowercase before comparing them.
 
-JavaScript gets the current hour using `new Date().getHours()`. An `if/else` condition displays a morning, afternoon, or evening greeting.
+Matching project cards remain visible, while cards that do not match are hidden. JavaScript also updates the number of visible projects. If there are no matches, a friendly empty-state message appears.
 
-### Contact-Form Feedback
+### Contact-Form Validation
 
-An event listener detects when the contact form is submitted. It prevents the page from refreshing, displays a demonstration message, and resets the form. It does not claim that data was sent because there is no backend.
+A `submit` event listener prevents the demonstration form from refreshing the page.
 
-### Automatic Copyright Year
+JavaScript checks that:
 
-JavaScript gets the current year and adds it to the footer automatically.
+- The name is not empty.
+- The email follows a valid email format.
+- The message is not empty.
+
+Invalid fields receive an error message and an `aria-invalid` attribute. Focus moves to the first invalid field. When all entries are valid, the form displays a confirmation message and clears the fields.
 
 ### Dark Mode
 
-The theme button adds or removes the `dark-theme` class from the page. The CSS changes its color variables when this class is active. The selected theme is stored using `localStorage`, so the website remembers it after the page is refreshed.
+The theme button adds or removes the `dark-theme` class. The selected theme is stored in `localStorage`, allowing the website to restore the visitor’s preference after the page is refreshed.
 
-## Responsive Design and Testing
+### Time-Based Greeting
 
-I tested the website with Live Server and browser developer tools at mobile, tablet, and desktop widths. I checked the navigation, project images, contact links, required form fields, form feedback, greeting, dark-mode button, saved theme, and browser console.
+JavaScript uses the current hour to display a morning, afternoon, or evening greeting.
 
-## Limitation
+### Automatic Year
 
-The contact form does not send or save messages because the project does not include a backend.
+JavaScript gets the current year and displays it automatically in the footer.
+
+## Accessibility
+
+- Form fields have connected labels.
+- Error and status messages use `aria-live`.
+- Invalid fields use `aria-invalid`.
+- Keyboard focus styles are visible.
+- The theme button reports whether dark mode is active.
+- Reduced-motion preferences are respected.
+
+## Testing
+
+I tested the website using Live Server and browser developer tools. I checked:
+
+- Navigation links.
+- Project search with matching and nonmatching words.
+- Project count and empty-state feedback.
+- Empty, invalid, and valid form submissions.
+- Light and dark themes.
+- Saved theme preference after refreshing.
+- Desktop, tablet, and mobile layouts.
+- Images, email, and LinkedIn links.
+
+## Limitations
+
+The contact form demonstrates validation and feedback but does not send or store messages because the project does not include a backend or external form service.
