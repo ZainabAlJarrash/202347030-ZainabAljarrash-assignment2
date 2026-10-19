@@ -1,6 +1,6 @@
 # Zainab Aljarrash – Personal Portfolio
 
-A responsive personal portfolio website created for SWE363 Assignment2. The website introduces me, presents my projects and interests, and provides a contact form and professional contact links. This version improves my Assignment 1 portfolio by adding project search, form validation, user feedback, and more dynamic behavior.
+A responsive personal portfolio website created for SWE363 Assignment 2. The website introduces me, presents my projects and interests, and provides a contact form and professional contact links. This version improves my Assignment 1 portfolio by adding project search, form validation, user feedback, and more dynamic behavior.
 
 ## Features
 

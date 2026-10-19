@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         yearElement.textContent = new Date().getFullYear();
     }
 
-    // Provide feedback for the demonstration contact form.
+    // Validate the demonstration contact form and provide feedback.
     const contactForm = document.querySelector("#contact-form");
     const formStatus = document.querySelector("#form-status");
 
@@ -154,11 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Display the correct project count when the page first loads.
         filterProjects();
     }
-
-
-
-
-
+    
     // Switch between light and dark themes.
     const themeToggle = document.querySelector("#theme-toggle");
     const savedTheme = localStorage.getItem("portfolio-theme");
